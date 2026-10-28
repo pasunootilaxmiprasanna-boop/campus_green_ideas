@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b4d"><title>Campus Green Ideas Board</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-icon">♧</span><span>Campus<span class="brand-light">Green</span><small>IDEAS BOARD</small></span></a>
+  <nav><button class="nav-link active" data-view="board">Idea board</button><button class="nav-link" data-view="my-ideas" class="nav-link">My ideas</button><button id="admin-nav" class="nav-link hidden" data-view="admin">Admin</button></nav>
+  <div class="account"><span id="user-label" class="user-label">Not signed in</span><button id="auth-open" class="btn btn-outline">Sign in</button><button id="logout-btn" class="btn btn-outline hidden">Sign out</button></div>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy"><span class="eyebrow">SMALL IDEAS. GREENER CAMPUS.</span><h1>Make our campus<br><em>a little greener.</em></h1>
+      <p>A shared space for students to suggest practical sustainability improvements, support ideas, and track progress together.</p>
+      <div class="hero-actions"><button id="share-idea" class="btn btn-primary">＋ Share an idea</button><a href="#ideas" class="text-link">Explore ideas ↓</a></div>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="leaf leaf-one">❧</div><div class="leaf leaf-two">❧</div><div class="plant-pot"></div><div class="art-label">GROW<br>GOOD IDEAS</div></div>
+  </section>
+  <section class="stats" aria-label="Idea board statistics"><article><span class="stat-icon">✳</span><div><strong id="stat-ideas">—</strong><small>Ideas shared</small></div></article><article><span class="stat-icon">♡</span><div><strong id="stat-votes">—</strong><small>Community votes</small></div></article><article><span class="stat-icon">✓</span><div><strong id="stat-done">—</strong><small>Implemented</small></div></article></section>
+  <section class="section-head" id="ideas"><div><span class="eyebrow">COMMUNITY SUGGESTIONS</span><h2 id="board-title">Ideas for a better campus</h2><p>Find an idea, add your support, and help it grow.</p></div><button id="share-idea-2" class="btn btn-primary">＋ Post an idea</button></section>
+  <div class="toolbar"><label class="searchbox">⌕ <input id="search" type="search" placeholder="Search ideas..."></label><select id="category-filter" aria-label="Filter by category"><option value="">All categories</option><option>Waste & Recycling</option><option>Energy Saving</option><option>Water Conservation</option><option>Green Spaces</option><option>Sustainable Transport</option><option>Other</option></select><select id="status-filter" aria-label="Filter by status"><option value="">All statuses</option><option>submitted</option><option>under_review</option><option>planned</option><option>in_progress</option><option>implemented</option><option>declined</option></select><select id="sort" aria-label="Sort ideas"><option value="newest">Newest first</option><option value="votes">Most supported</option></select></div>
+  <div id="notice" class="notice hidden" role="status"></div><div id="ideas-grid" class="ideas-grid"><div class="loading">Loading campus ideas…</div></div>
+  <section class="bottom-cta"><div class="cta-leaf">♧</div><div><h2>Have an idea worth growing?</h2><p>It can start with one small change. Share yours with the campus community.</p></div><button id="share-idea-3" class="btn btn-light">Share your idea →</button></section>
+</main>
+<footer><span>© Campus Green Ideas Board</span><span>Built for a more sustainable campus 🌱</span></footer>
+
+<div id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title"><div class="modal-card small-modal"><button class="modal-close" data-close="auth-modal" aria-label="Close">×</button><span class="eyebrow">WELCOME TO THE COMMUNITY</span><h2 id="auth-title">Sign in</h2><p id="auth-subtitle" class="muted">Sign in to vote, comment, and share ideas.</p><form id="auth-form"><label>Email address<input type="email" id="auth-email" required autocomplete="email"></label><label>Password<input type="password" id="auth-password" required minlength="8" autocomplete="current-password"></label><label id="name-field" class="hidden">Your name<input type="text" id="auth-name" maxlength="80" autocomplete="name"></label><div id="auth-error" class="form-error" role="alert"></div><button id="auth-submit" class="btn btn-primary full-width">Sign in</button></form><p class="switch-auth"><span id="switch-label">New here?</span> <button id="switch-auth" class="inline-button">Create an account</button></p></div></div>
+
+<div id="idea-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="idea-modal-title"><div class="modal-card"><button class="modal-close" data-close="idea-modal" aria-label="Close">×</button><span class="eyebrow">YOUR NEXT GREEN IDEA</span><h2 id="idea-modal-title">Share an idea</h2><p class="muted">Describe one practical change that could make campus more sustainable.</p><form id="idea-form"><label>Idea title<input id="idea-title" required minlength="5" maxlength="120" placeholder="e.g. Add water refill stations"></label><label>Category<select id="idea-category" required><option value="">Choose a category</option><option>Waste & Recycling</option><option>Energy Saving</option><option>Water Conservation</option><option>Green Spaces</option><option>Sustainable Transport</option><option>Other</option></select></label><label>Describe your idea<textarea id="idea-description" required minlength="20" maxlength="2000" rows="5" placeholder="What should change, and how would it help?"></textarea></label><div id="idea-error" class="form-error" role="alert"></div><button class="btn btn-primary full-width" type="submit">Post idea</button></form></div></div>
+
+<div id="detail-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="detail-title"><div class="modal-card detail-card"><button class="modal-close" data-close="detail-modal" aria-label="Close">×</button><div id="detail-content"></div></div></div>
+<script src="app.js" defer></script>
+</body></html>

@@ -1,0 +1,20 @@
+{
+  "name": "campus-green-ideas-board",
+  "version": "1.0.0",
+  "description": "A student sustainability ideas board powered by Express and Supabase PostgreSQL.",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js && node --check supabase.js && node --check middleware/auth.js && node --check routes/auth.js && node --check routes/ideas.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0"
+  }
+}
